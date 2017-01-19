@@ -1,6 +1,7 @@
 package org.epitech.todolist;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -25,14 +26,18 @@ public class AddTask extends AppCompatActivity{
         setContentView(R.layout.add_task);
         final Button button = (Button) findViewById(R.id.save);
         final TaskDBHelper mHelper = new TaskDBHelper(this);
+        SQLiteDatabase db = mHelper.getReadableDatabase();
+        final Cursor cursor = db.query(TaskContract.TaskEntry.Table,
+                new String[]{TaskContract.TaskEntry._ID, TaskContract.TaskEntry.COL_TASK_TITLE},
+                null, null, null, null, null);
 
         button.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View v)
             {
                 EditText task = (EditText) findViewById(R.id.task);
-                //final String TAG = "AddTask";
-                //Log.d(TAG, "Task to add " + task.getText().toString());
+                final String TAG = "AddTask";
+                Log.d(TAG, "Task to add " + task.getText().toString());
                 SQLiteDatabase db = mHelper.getWritableDatabase();
                 ContentValues values = new ContentValues();
                 values.put(TaskContract.TaskEntry.COL_TASK_TITLE, task.getText().toString());

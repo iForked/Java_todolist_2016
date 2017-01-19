@@ -4,4 +4,9 @@
     <string name="save">Save</string>
     <string name="task">Task</string>
     <string name="task_name">Enter your task</string>
+    <string name="to_do">What should you do?</string>
+    <string name="yes">Yes</string>
+    <string name="cancel">Cancel</string>
+    <string name="two_buttons_dialog">Alert box with two buttons</string>
+    <string name="hint">Enter something</string>
 </resources>
