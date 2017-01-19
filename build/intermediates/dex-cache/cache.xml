@@ -2,112 +2,94 @@
 <items version="2" >
 
     <item
-        is-multidex="true"
-        jar="/home/theo/Projects/Java/Android/ToDoList/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.1.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
-        <dex dex="/home/theo/Projects/Java/Android/ToDoList/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-25.1.0_b3613b5f833cef6185f35f47fe32f3c28f9a262d/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/theo/Projects/Java/Android/ToDoList/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.1.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
-        <dex dex="/home/theo/Projects/Java/Android/ToDoList/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-25.1.0_23fdcc29ac1e72e366250ae40e4ea0942ee220f5/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/theo/Projects/Java/Android/ToDoList/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.1.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
-        <dex dex="/home/theo/Projects/Java/Android/ToDoList/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-25.1.0_677801963568fe7451054ce8294f082f4f0d5df9/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
+        is-multidex="false"
         jar="/home/theo/Projects/Java/Android/ToDoList/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.1.0/jars/classes.jar"
-        jumboMode="true"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="6fb6ac3e8d3b9013819920d9ea11f3803c4c0033">
-        <dex dex="/home/theo/Projects/Java/Android/ToDoList/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-25.1.0_383a6adad94bb46280e07f9b45e7918603139be1/classes.dex" />
+        <dex dex="/home/theo/Projects/Java/Android/ToDoList/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-25.1.0_383a6adad94bb46280e07f9b45e7918603139be1.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/home/theo/Projects/Java/Android/ToDoList/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.1.0/jars/classes.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="/home/theo/Projects/Java/Android/ToDoList/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.1.0/jars/classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="e79aa3d9a16f8c9f16377c0608de70a8f31e5d80">
-        <dex dex="/home/theo/Projects/Java/Android/ToDoList/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-25.1.0_fc894b14544c1a9149ba57719b79a415ac355ffe/classes.dex" />
+        sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
+        <dex dex="/home/theo/Projects/Java/Android/ToDoList/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-25.1.0_23fdcc29ac1e72e366250ae40e4ea0942ee220f5.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/home/theo/Projects/Java/Android/ToDoList/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/jars/classes.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="/home/theo/Projects/Java/Android/ToDoList/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.1.0/jars/classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
-        <dex dex="/home/theo/Projects/Java/Android/ToDoList/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-25.1.0_c7b99cbcc230023ff7f706804bbea0de98aacbc8/classes.dex" />
+        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
+        <dex dex="/home/theo/Projects/Java/Android/ToDoList/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-25.1.0_b3613b5f833cef6185f35f47fe32f3c28f9a262d.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/home/theo/Projects/Java/Android/ToDoList/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.1.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
-        <dex dex="/home/theo/Projects/Java/Android/ToDoList/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-25.1.0_67205b64908694d43ac615b84eb6618fe5066b6b/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
+        is-multidex="false"
         jar="/home/theo/Projects/Java/Android/ToDoList/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.1.0/jars/classes.jar"
-        jumboMode="true"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="aee64634871d88a419d59eb743c1258a60f19700">
-        <dex dex="/home/theo/Projects/Java/Android/ToDoList/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-25.1.0_19715257b96e9d77d0663e2db7313b8420543a28/classes.dex" />
+        <dex dex="/home/theo/Projects/Java/Android/ToDoList/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-25.1.0_19715257b96e9d77d0663e2db7313b8420543a28.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/home/theo/Projects/Java/Android/ToDoList/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="/home/theo/Projects/Java/Android/ToDoList/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.1.0/jars/classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="0a23bb50ff43448384759d1a27e456115c4127a3">
-        <dex dex="/home/theo/Projects/Java/Android/ToDoList/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_803dbae9694f72205c7cd8d7f596d5342566dda3/classes.dex" />
+        sha1="e79aa3d9a16f8c9f16377c0608de70a8f31e5d80">
+        <dex dex="/home/theo/Projects/Java/Android/ToDoList/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-25.1.0_fc894b14544c1a9149ba57719b79a415ac355ffe.jar" />
     </item>
     <item
-        is-multidex="true"
+        is-multidex="false"
         jar="/home/theo/Projects/Java/Android/ToDoList/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.1.0/jars/classes.jar"
-        jumboMode="true"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/home/theo/Projects/Java/Android/ToDoList/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-25.1.0_551fc0126f2c8e5a82d97aafe16960ede65186d8/classes.dex" />
+        <dex dex="/home/theo/Projects/Java/Android/ToDoList/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-25.1.0_551fc0126f2c8e5a82d97aafe16960ede65186d8.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/home/theo/Projects/Java/Android/ToDoList/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="/home/theo/Projects/Java/Android/ToDoList/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.1.0/jars/classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="cad3a11162ee0021598c4378329797278c70561c">
-        <dex dex="/home/theo/Projects/Java/Android/ToDoList/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_477f86995086b419cfe31b0a3c56660e6483ac8d/classes.dex" />
+        sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
+        <dex dex="/home/theo/Projects/Java/Android/ToDoList/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-25.1.0_67205b64908694d43ac615b84eb6618fe5066b6b.jar" />
     </item>
     <item
-        is-multidex="true"
+        is-multidex="false"
+        jar="/home/theo/Projects/Java/Android/ToDoList/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
+        <dex dex="/home/theo/Projects/Java/Android/ToDoList/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-25.1.0_c7b99cbcc230023ff7f706804bbea0de98aacbc8.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/home/theo/sdk/extras/android/m2repository/com/android/support/support-annotations/25.1.0/support-annotations-25.1.0.jar"
-        jumboMode="true"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="64cb6b229a8bdfd907bc8dd46839a0053e4c018d">
-        <dex dex="/home/theo/Projects/Java/Android/ToDoList/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.1.0_336026d3c6228fb420ec72fb6931210c0a70be43/classes.dex" />
+        <dex dex="/home/theo/Projects/Java/Android/ToDoList/app/build/intermediates/pre-dexed/debug/support-annotations-25.1.0_336026d3c6228fb420ec72fb6931210c0a70be43.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/theo/Projects/Java/Android/ToDoList/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
+        <dex dex="/home/theo/Projects/Java/Android/ToDoList/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-25.1.0_677801963568fe7451054ce8294f082f4f0d5df9.jar" />
     </item>
 
 </items>
