@@ -17,9 +17,10 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import java.util.ArrayList;
 import org.epitech.todolist.db.TaskContract;
 import org.epitech.todolist.db.TaskDBHelper;
-import java.util.ArrayList;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
                                 null,
                                 values,
                                 SQLiteDatabase.CONFLICT_REPLACE);
+                        Toast.makeText(c, "Add task " + task, Toast.LENGTH_SHORT).show();
                         db.close();
                         updateUI();
                     }
@@ -98,13 +100,15 @@ public class MainActivity extends AppCompatActivity {
         db.close();
     }
 
-    public void deleteTask(View view){
+    public void deleteTask(View view) {
         View parent = (View) view.getParent();
         TextView textView = (TextView) parent.findViewById(R.id.task_title);
         String task = String.valueOf(textView.getText().toString());
         SQLiteDatabase db = mHelper.getReadableDatabase();
         db.delete(TaskContract.TaskEntry.Table, TaskContract.TaskEntry.COL_TASK_TITLE + " = ?",
                 new String[]{task});
+        Log.d("DeleteTask", "Task " + task + " is now deleted");
+        Toast.makeText(c, "Task " + task + " deleted", Toast.LENGTH_LONG).show();
         db.close();
         updateUI();
     }

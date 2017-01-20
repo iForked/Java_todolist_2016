@@ -10,4 +10,6 @@
     <string name="two_buttons_dialog">Alert box with two buttons</string>
     <string name="hint">Enter something</string>
     <string name="done">Done</string>
+    <string name="set_notification">Set notification\nfor this date</string>
+    <string name="choose_date">Choose a due date</string>
 </resources>

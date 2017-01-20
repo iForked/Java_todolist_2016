@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:weightSum="1">
 
     <TextView
         android:id="@+id/dialogTitle"
@@ -23,4 +24,5 @@
         android:ellipsize="start"
         android:hint="@string/hint"
         android:inputType="textImeMultiLine" />
+    
 </LinearLayout>
