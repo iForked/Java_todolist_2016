@@ -12,7 +12,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
-        applicationId "org.epitech.todolist"
+        applicationId "eu.epitech.todolist"
         minSdkVersion 19
         targetSdkVersion 25
         versionCode 1

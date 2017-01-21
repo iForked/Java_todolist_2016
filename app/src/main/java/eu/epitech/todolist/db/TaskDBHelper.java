@@ -1,4 +1,4 @@
-package org.epitech.todolist.db;
+package eu.epitech.todolist.db;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

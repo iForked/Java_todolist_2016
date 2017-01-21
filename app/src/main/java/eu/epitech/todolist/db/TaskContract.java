@@ -1,4 +1,4 @@
-package org.epitech.todolist.db;
+package eu.epitech.todolist.db;
 
 /**
  * Created by theo on 1/19/17.
@@ -7,7 +7,7 @@ package org.epitech.todolist.db;
 import android.provider.BaseColumns;
 
 public class TaskContract {
-    public static final String DB_NAME = "org.epitech.eu.db";
+    public static final String DB_NAME = "eu.epitech.todolist.db";
     public static final int DB_VERSION = 1;
 
     public class TaskEntry implements BaseColumns{

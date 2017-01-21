@@ -1,4 +1,4 @@
-package org.epitech.todolist;
+package eu.epitech.todolist;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -18,8 +18,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
-import org.epitech.todolist.db.TaskContract;
-import org.epitech.todolist.db.TaskDBHelper;
+import eu.epitech.todolist.db.TaskContract;
+import eu.epitech.todolist.db.TaskDBHelper;
 
 
 public class MainActivity extends AppCompatActivity {

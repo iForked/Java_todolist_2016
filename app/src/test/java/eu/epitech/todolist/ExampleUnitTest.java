@@ -1,4 +1,4 @@
-package org.epitech.todolist;
+package eu.epitech.todolist;
 
 import org.junit.Test;
 
