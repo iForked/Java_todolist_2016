@@ -8,8 +8,6 @@
     <string name="cancel">Annuler</string>
     <string name="hint">Entrer quelque chose</string>
     <string name="done">Terminer</string>
-    <string name="set_notification">Set notification\nfor this date</string>
-    <string name="choose_date">Choose a due date</string>
     <string name="description">Description</string>
     <string name="editing_task">Editer la tâche</string>
     <string name="new_task_name">Nouveau nom de la tâche</string>
@@ -20,4 +18,5 @@
     <string name="rename_empty">Impossible de renomer une tâche\navec un nom vide!</string>
     <string name="task_space">Tâche </string>
     <string name="deleted_space"> supprimée</string>
+    <string name="added"> ajoutée</string>
 </resources>

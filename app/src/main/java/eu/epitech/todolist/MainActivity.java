@@ -9,7 +9,6 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -26,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private CustomAdapter mAdapter;
     private ListView mTaskListView;
     private Context c = this;
+    private int year, month, day;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,11 +48,10 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int id) {
                         String task = String.valueOf(userInput.getText().toString());
                         String description = String.valueOf(userInputDescription.getText().toString());
-                        if (task.isEmpty()){
+                        if (task.isEmpty()) {
                             dialog.dismiss();
                             Toast.makeText(c, getResources().getString(R.string.empty_task), Toast.LENGTH_SHORT).show();
-                        }
-                        else {
+                        } else {
                             SQLiteDatabase db = mHelper.getReadableDatabase();
                             ContentValues values = new ContentValues();
                             values.put(TaskContract.TaskEntry.COL_TASK_TITLE, task);
@@ -61,8 +60,10 @@ public class MainActivity extends AppCompatActivity {
                                     null,
                                     values,
                                     SQLiteDatabase.CONFLICT_REPLACE);
-                            Toast.makeText(c, getResources().getString(R.string.task_added) + task, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(c, getResources().getString(R.string.task_added)  + " " + task + " " +
+                                    getResources().getString(R.string.added), Toast.LENGTH_SHORT).show();
                             db.close();
+                            updateUI();
                         }
                     }
                 })
@@ -108,13 +109,12 @@ public class MainActivity extends AppCompatActivity {
         SQLiteDatabase db = mHelper.getReadableDatabase();
         db.delete(TaskContract.TaskEntry.Table, TaskContract.TaskEntry.COL_TASK_TITLE + " = ?",
                 new String[]{task});
-        Toast.makeText(c, getResources().getString(R.string.task_space) + task + getResources().getString(R.string.deleted_space), Toast.LENGTH_LONG).show();
+        Toast.makeText(c, getResources().getString(R.string.task_space) + " " + task + " " + getResources().getString(R.string.deleted_space), Toast.LENGTH_LONG).show();
         db.close();
         updateUI();
     }
 
-    public void editTask(View view)
-    {
+    public void editTask(View view) {
         final AlertDialog.Builder dialog = new AlertDialog.Builder(c);
         final LayoutInflater layoutDialog = LayoutInflater.from(c);
         View editView = layoutDialog.inflate(R.layout.edit_task, null);
@@ -128,20 +128,17 @@ public class MainActivity extends AppCompatActivity {
         contentText.setText(String.valueOf(oldContentText.getText()), TextView.BufferType.EDITABLE);
 
         dialog.setView(editView);
-        dialog.setPositiveButton("Edit", new DialogInterface.OnClickListener()
-        {
+        dialog.setPositiveButton("Edit", new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which)
-            {
+            public void onClick(DialogInterface dialog, int which) {
                 String task = String.valueOf(taskText.getText().toString());
                 String description = String.valueOf(contentText.getText().toString());
                 SQLiteDatabase db = mHelper.getWritableDatabase();
                 ContentValues values = new ContentValues();
-                if (task.isEmpty()){
+                if (task.isEmpty()) {
                     dialog.dismiss();
                     Toast.makeText(c, getResources().getString(R.string.rename_empty), Toast.LENGTH_SHORT).show();
-                }
-                else {
+                } else {
                     values.put(TaskContract.TaskEntry.COL_TASK_TITLE, task);
                     values.put(TaskContract.TaskEntry.COL_TASK_DES, description);
                     db.updateWithOnConflict(TaskContract.TaskEntry.Table, values, null, null, SQLiteDatabase.CONFLICT_REPLACE);
