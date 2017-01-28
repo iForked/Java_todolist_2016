@@ -21,6 +21,7 @@ public class CustomAdapter extends ArrayAdapter<TaskClass> {
     private static class ViewHolder{
         TextView taskName;
         TextView taskDescription;
+        TextView taskDate;
     }
 
     CustomAdapter(ArrayList<TaskClass> data, Context context){
@@ -41,7 +42,8 @@ public class CustomAdapter extends ArrayAdapter<TaskClass> {
             LayoutInflater inflater = LayoutInflater.from(getContext());
             convertView = inflater.inflate(R.layout.item_todo, parent, false);
             viewHolder.taskName = (TextView) convertView.findViewById(R.id.task_title);
-            viewHolder.taskDescription = (TextView) convertView.findViewById(R.id.description);
+            viewHolder.taskDescription = (TextView) convertView.findViewById(R.id.todo_description);
+            viewHolder.taskDate = (TextView) convertView.findViewById(R.id.date);
             result = convertView;
             convertView.setTag(viewHolder);
         }
@@ -52,6 +54,7 @@ public class CustomAdapter extends ArrayAdapter<TaskClass> {
 
         viewHolder.taskName.setText(newData.getTask());
         viewHolder.taskDescription.setText(newData.getDescription());
+        viewHolder.taskDate.setText(newData.getDate());
         return convertView;
     }
 

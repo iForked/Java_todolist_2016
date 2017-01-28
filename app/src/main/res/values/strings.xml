@@ -13,9 +13,13 @@
     <string name="new_task_name">New task name</string>
     <string name="new_task_description">New task description</string>
     <string name="empty_task">Can\'t make empty task, sorry !</string>
-    <string name="task_added">Add task </string>
+    <string name="task_added">Add task</string>
     <string name="cancel_add">Add task canceled</string>
     <string name="rename_empty">Can\'t rename task with empty title, sorry !</string>
-    <string name="task_space">Task </string>
-    <string name="deleted_space"> deleted</string>
+    <string name="task_space">Task</string>
+    <string name="deleted_space">deleted</string>
+    <string name="date">Date</string>
+    <string name="due_date">Due date</string>
+    <string name="edit_cancel">Edit task canceled</string>
+    <string name="edit">Edit</string>
 </resources>

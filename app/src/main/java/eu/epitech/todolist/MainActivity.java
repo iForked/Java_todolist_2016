@@ -11,11 +11,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+
 import eu.epitech.todolist.db.TaskContract;
 import eu.epitech.todolist.db.TaskDBHelper;
 
@@ -35,11 +42,12 @@ public class MainActivity extends AppCompatActivity {
         mTaskListView = (ListView) findViewById(R.id.list);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         updateUI();
+
         fab.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 final AlertDialog.Builder dialog = new AlertDialog.Builder(c);
                 final LayoutInflater layoutInflaterAndroid = LayoutInflater.from(c);
-                View mView = layoutInflaterAndroid.inflate(R.layout.user_input_dialog_box, null);
+                final View mView = layoutInflaterAndroid.inflate(R.layout.user_input_dialog_box, null);
                 dialog.setView(mView);
                 final EditText userInput = (EditText) mView.findViewById(R.id.userInputDialog);
                 final EditText userInputDescription = (EditText) mView.findViewById(R.id.userInputDialogDescription);
@@ -53,15 +61,22 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(c, getResources().getString(R.string.empty_task), Toast.LENGTH_SHORT).show();
                         } else {
                             SQLiteDatabase db = mHelper.getReadableDatabase();
+                            final DatePicker calendar = (DatePicker) mView.findViewById(R.id.pick_date);
+                            year = calendar.getYear();
+                            month = calendar.getMonth();
+                            day = calendar.getDayOfMonth();
                             ContentValues values = new ContentValues();
+                            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+                            final String date = sdf.format(new Date(year - 1900, month, day));
                             values.put(TaskContract.TaskEntry.COL_TASK_TITLE, task);
                             values.put(TaskContract.TaskEntry.COL_TASK_DES, description);
+                            values.put(TaskContract.TaskEntry.DATE, date);
                             db.insertWithOnConflict(TaskContract.TaskEntry.Table,
                                     null,
                                     values,
                                     SQLiteDatabase.CONFLICT_REPLACE);
-                            Toast.makeText(c, getResources().getString(R.string.task_added)  + " " + task + " " +
-                                    getResources().getString(R.string.added), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(c, getResources().getString(R.string.task_added)  + " " + task,
+                                    Toast.LENGTH_SHORT).show();
                             db.close();
                             updateUI();
                         }
@@ -83,12 +98,14 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<TaskClass> taskList = new ArrayList<>();
         SQLiteDatabase db = mHelper.getReadableDatabase();
         Cursor cursor = db.query(TaskContract.TaskEntry.Table,
-                new String[]{TaskContract.TaskEntry._ID, TaskContract.TaskEntry.COL_TASK_TITLE, TaskContract.TaskEntry.COL_TASK_DES},
+                new String[]{TaskContract.TaskEntry._ID, TaskContract.TaskEntry.COL_TASK_TITLE,
+                        TaskContract.TaskEntry.COL_TASK_DES, TaskContract.TaskEntry.DATE},
                 null, null, null, null, null);
         while (cursor.moveToNext()) {
             int id = cursor.getColumnIndex(TaskContract.TaskEntry.COL_TASK_TITLE);
             int description = cursor.getColumnIndex(TaskContract.TaskEntry.COL_TASK_DES);
-            taskList.add(new TaskClass(cursor.getString(id), cursor.getString(description)));
+            int date = cursor.getColumnIndex(TaskContract.TaskEntry.DATE);
+            taskList.add(new TaskClass(cursor.getString(id), cursor.getString(description), cursor.getString(date)));
         }
         if (mAdapter == null) {
             mAdapter = new CustomAdapter(taskList, c);
@@ -115,20 +132,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void editTask(View view) {
+        View parent = (View) view.getParent();
         final AlertDialog.Builder dialog = new AlertDialog.Builder(c);
         final LayoutInflater layoutDialog = LayoutInflater.from(c);
         View editView = layoutDialog.inflate(R.layout.edit_task, null);
 
         final EditText taskText = (EditText) editView.findViewById(R.id.name);
-        final EditText contentText = (EditText) editView.findViewById(R.id.description);
+        final EditText contentText = (EditText) editView.findViewById(R.id.edit_description);
 
-        TextView oldTaskText = (TextView) findViewById(R.id.task_title);
-        TextView oldContentText = (TextView) findViewById(R.id.description);
+        final TextView oldTaskText = (TextView) parent.findViewById(R.id.task_title);
+        TextView oldContentText = (TextView) parent.findViewById(R.id.todo_description);
+
         taskText.setText(String.valueOf(oldTaskText.getText()), TextView.BufferType.EDITABLE);
         contentText.setText(String.valueOf(oldContentText.getText()), TextView.BufferType.EDITABLE);
 
         dialog.setView(editView);
-        dialog.setPositiveButton("Edit", new DialogInterface.OnClickListener() {
+        dialog.setPositiveButton(R.string.edit, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String task = String.valueOf(taskText.getText().toString());
@@ -141,19 +160,27 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     values.put(TaskContract.TaskEntry.COL_TASK_TITLE, task);
                     values.put(TaskContract.TaskEntry.COL_TASK_DES, description);
-                    db.updateWithOnConflict(TaskContract.TaskEntry.Table, values, null, null, SQLiteDatabase.CONFLICT_REPLACE);
+                    db.updateWithOnConflict(TaskContract.TaskEntry.Table, values, TaskContract.TaskEntry.COL_TASK_TITLE + " = ?",
+                            new String[]{oldTaskText.getText().toString()}, SQLiteDatabase.CONFLICT_REPLACE);
                     db.close();
                     updateUI();
                 }
+            }
+        }).setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                Toast.makeText(c, getResources().getString(R.string.edit_cancel), Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
             }
         });
         dialog.show();
     }
 }
 
-/*              private Notification.Builder notification;
-                notification = new Notification.Builder(this);
-                notification.setContentTitle("ToDo List").setContentText("New task added: " + task).setSmallIcon(R.drawable.ic_launcher);
-                final Notification newNotification = notification.build();
-                final NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-                manager.notify(0, newNotification); */
+/*
+private Notification.Builder notification;
+notification = new Notification.Builder(this);
+notification.setContentTitle("ToDo List").setContentText("New task added: " + task).setSmallIcon(R.drawable.ic_launcher);
+final Notification newNotification = notification.build();
+final NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+manager.notify(0, newNotification);
+*/

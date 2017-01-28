@@ -8,10 +8,12 @@ public class TaskClass {
 
     private final String task;
     private final String description;
+    private final String date;
 
-    public TaskClass(String task, String description){
+    public TaskClass(String task, String description, String date){
         this.task = task;
         this.description = description;
+        this.date = date;
     }
 
     public String getTask(){
@@ -21,4 +23,6 @@ public class TaskClass {
     public String getDescription(){
         return description;
     }
+
+    public String getDate() { return date; }
 }
