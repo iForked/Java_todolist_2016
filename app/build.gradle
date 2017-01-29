@@ -8,6 +8,12 @@ android {
             keyAlias "todo_key"
             keyPassword "Zsmaizccf1"
         }
+        debug {
+            storeFile file("../debug.keystore")
+            storePassword "android"
+            keyAlias "debug-key"
+            keyPassword "android"
+        }
         compileSdkVersion 25
         buildToolsVersion "25.0.2"
         defaultConfig {
@@ -26,6 +32,9 @@ android {
                 applicationVariants.all { variant ->
                     renameAPK(variant, defaultConfig, 'R')
                 }
+            }
+            debug {
+                signingConfig signingConfigs.debug
             }
         }
     }
